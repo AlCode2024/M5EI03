@@ -1,11 +1,11 @@
 // Clase Usuario con un constructor primario
 class Usuario(
-    val nombre: String,
-    val edad: Int?,
-    val trabajo: String?,
+    val nombre: String, // este no lleva el ? por que no puede ser nulo, es obligatorio para que funcione el cuento
+    val edad: Int?, // entero o nulo
+    val trabajo: String?, // texto o nulo
     val referencia: String? // Puede ser nulo, y será solo el nombre de la referencia
 ) {
-    // Función de clase para mostrar los datos del usuario
+    // Función para mostrar los datos del usuario
     fun mostrarDatos() {
         println("Nombre: $nombre")
         println("Edad: ${edad ?: "Sin informacion"}") // Si la edad es nula, se muestra "No especificada" (?: operador elvis)
@@ -20,7 +20,7 @@ class Usuario(
 
 fun main() {
     // Mensaje de bienvenida
-    println("Bienvenido al sistema de registro de usuarios.")
+    println("Bienvenido al sistema de registro de usuarios 2.0")
 
     val listaUsuarios = mutableListOf<Usuario>()
 
@@ -29,7 +29,7 @@ fun main() {
         println("Ingrese el nombre del usuario (Obligatorio):")
         val nombre = readLine()?.takeIf { it.isNotBlank() } ?: run {
             println("No ingresó el nombre, no se ha creado ningún usuario.")
-            return null
+            return null // usamos este null para darle continuidad al ciclo
         }
 
         println("Ingrese la edad del usuario (o presione Enter si no desea ingresar la edad):")
@@ -44,7 +44,7 @@ fun main() {
         return Usuario(nombre, edad, trabajo, referencia)
     }
 
-    // Pregunta final
+    // Pregunta final. con esto nos aseguramos que tenga un fin controlado la app y no se cierre repentinamente.
     fun deseaAgregarOtroUsuario(): String? {
         while (true) {
             println("¿Desea agregar otro usuario? (1: Sí, 2: No):")
