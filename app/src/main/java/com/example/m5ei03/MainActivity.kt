@@ -1,3 +1,5 @@
+package com.example.m5ei03
+
 // Clase Usuario con un constructor primario
 class Usuario(
     val nombre: String, // este no lleva el ? por que no puede ser nulo, es obligatorio para que funcione el cuento
